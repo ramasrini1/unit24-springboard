@@ -1,0 +1,15 @@
+h1, h2 {
+  margin: 1em 0;
+}
+
+input[type=checkbox].form-control {
+  width: 25px;
+  height: 25px;
+  display: inline-block;
+  vertical-align: -8px;
+}
+
+.pets-listing {
+  margin-bottom: 2em;
+}
+

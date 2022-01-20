@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Pet Adoption Agency</title>
+  <link rel="stylesheet" href="https://bootswatch.com/4/minty/bootstrap.min.css">
+  <link rel="stylesheet" href="/static/adopt.css">
+</head>
+<body>
+
+  <div class="container">
+    <h1>Add/Edit Pet</h1>
+
+  {% for msg in get_flashed_messages() %}
+    <div>{{ msg }}</div>
+  {% endfor %}
+
+    <form id="pet-add-form" method="POST">
+      {{ form.hidden_tag() }} <!--add type=hidden form fields -->
+
+      {% for field in form if field.widget.input_type != 'hidden' %}
+
+        <div class='form-group'>
+          {{ field.label }}
+          {{ field (class="form-control")}}
+
+          {% for error in field.errors %}
+            {{ error }}
+          {% endfor %}
+        </div>
+
+      {% endfor %}
+
+      <button type="submit">Submit</button>
+    </form>
+
+  </div>
+
+</body>
+</html>
